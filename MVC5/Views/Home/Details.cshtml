@@ -1,0 +1,50 @@
+﻿@model Model.CONFIG_TYPE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CONFIG_TYPE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATYS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STATYS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REMARK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REMARK)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

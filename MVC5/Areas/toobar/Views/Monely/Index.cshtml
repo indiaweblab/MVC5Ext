@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/toobar/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/style/bootstrap.css" rel="stylesheet" />
+<script src="~/Content/Scripts/jquery-3.1.1.min.js"></script>
+<script src="~/Content/Scripts/bootstrap.js"></script>
+<script>
+    $(function () {
+        var url = "/toobar/Monely/FacGetPar";
+        $("#MenuName > a").click(function () {
+            var typeValue = $(this).attr("type");
+            GetPar({ type: typeValue });
+        })
+
+        var GetPar = function (value) {
+            $.get(url, value , function (data) {
+                $("#Content").html(data);
+            })
+        }
+    })
+</script>
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group" id="MenuName">
+            <a href="/" class="list-group-item active">
+                金融组件
+            </a>
+            <a href="javascript:void(0)" type="0" class="list-group-item">1.利率与利息计算</a>
+            <a href="javascript:void(0)" class="list-group-item">Morbi leo risus</a>
+            <a href="javascript:void(0)" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="javascript:void(0)" class="list-group-item">Vestibulum at eros</a>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div id="Content">
+
+        </div>
+    </div>
+</div>

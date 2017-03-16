@@ -1,0 +1,48 @@
+﻿@model Model.toobar.Monely.RateView
+
+<div class="row">
+    <div class="row">
+        <form id="Frm_RateView" class="form-control">
+            <div class="col-md-5">
+                <h2 class="h4">借贷</h2>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.LostName)
+                    @Html.TextBoxFor(x => x.LostName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.LostType)
+                    @*@Html.EnumDropDownListFor(x=>x.LostRate,)*@
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.LostRate)
+                    @Html.TextBoxFor(x => x.LostRate, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.LostQty)
+                    @Html.TextBoxFor(x => x.LostQty, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h2 class="h4">投资</h2>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.GetName)
+                    @Html.TextBoxFor(x => x.GetName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.GetType)
+                    @Html.TextBoxFor(x => x.GetType, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.GetRate)
+                    @Html.TextBoxFor(x => x.GetRate, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.GetQty)
+                    @Html.TextBoxFor(x => x.GetQty, new { @class = "form-control" })
+                </div>
+
+            </div>
+            <input type="button" class="btn btn-success" value="对比" id="Btn_Get" />
+        </form>
+    </div>
+</div>
