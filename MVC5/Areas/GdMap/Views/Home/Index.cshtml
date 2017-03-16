@@ -43,7 +43,6 @@
         resizeEnable: true,
         isHotspot: true
     });
-
     var currCity,
         temArr = { Kind: [], Hostp: [] },
         graphObj = { R: "1000", COLOR: "#F33" };
@@ -54,7 +53,10 @@
 
     $(function () {
         //设置城市
-        //SearchExt.SearchCity();
+        $("#query").click(function () {
+            var cityName = $("#cityName").val();
+            SearchExt.SearchCity(cityName);
+        })
 
         //模糊查询
         $("#tipSearch").click(function () {
@@ -83,60 +85,45 @@
             }
 
         })
+
     })
 
 
 
     var SearchExt = {     
         //城市查询
-        SearchCity :  function()
+        SearchCity: function (cityName)
     {
-        AMap.event.addDomListener(document.getElementById('query'), 'click', function () {
-            var cityName = document.getElementById('cityName').value;
-            if (!cityName) {
-                cityName = '长沙市';
+                if (!cityName) {
+                    cityName = '长沙市';
+                }
+                map.setCity(cityName);
+            });
+            var placeSearch = new AMap.PlaceSearch();  //构造地点查询类
+            var infoWindow = new AMap.AdvancedInfoWindow({});
+            map.on('hotspotclick', function (result) {
+                placeSearch.getDetails(result.id, function (status, result) {
+                    if (status === 'complete' && result.info === 'OK') {
+                        placeSearch_CallBack(result);
+                    }
+                });
+            });
+            //回调函数
+            function placeSearch_CallBack(data) { //infoWindow.open(map, result.lnglat);
+                var poiArr = data.poiList.pois;
+                var location = poiArr[0].location;
+                infoWindow.setContent(createContent(poiArr[0]));
+                infoWindow.open(map, location);
             }
-            map.setCity(cityName);
-        });
-    var placeSearch = new AMap.PlaceSearch();  //构造地点查询类
-    var infoWindow = new AMap.AdvancedInfoWindow({});
-    map.on('hotspotclick', function (result) {
-        placeSearch.getDetails(result.id, function (status, result) {
-            if (status === 'complete' && result.info === 'OK') {
-                placeSearch_CallBack(result);
+            function createContent(poi) {  //信息窗体内容
+                var s = [];
+                s.push('<div class="info-title">' + poi.name + '</div><div class="info-content">' + "地址：" + poi.address);
+                s.push("电话：" + poi.tel);
+                s.push("类型：" + poi.type);
+                s.push('<div>');
+                return s.join("<br>");
             }
-        });
-    });
-    //回调函数
-    function placeSearch_CallBack(data) { //infoWindow.open(map, result.lnglat);
-        var poiArr = data.poiList.pois;
-        var location = poiArr[0].location;
-        infoWindow.setContent(createContent(poiArr[0]));
-        infoWindow.open(map, location);
-    }
-    function createContent(poi) {  //信息窗体内容
-        var s = [];
-        s.push('<div class="info-title">' + poi.name + '</div><div class="info-content">' + "地址：" + poi.address);
-        s.push("电话：" + poi.tel);
-        s.push("类型：" + poi.type);
-        s.push('<div>');
-        return s.join("<br>");
-    }
         } ,
-
-        //选择执行
-        SelSearch  :  function() {
-        var circle = new AMap.Circle({
-            center: new AMap.LngLat(pix.X, pix.Y),// 圆心位置
-            radius: graphObj.R, //半径
-            strokeColor: "#F33", //线颜色
-            strokeOpacity: 1, //线透明度
-            strokeWeight: 3, //线粗细度
-            fillColor: graphObj.COLOR, //填充颜色
-            fillOpacity: 0.35//填充透明度
-        });
-            circle.setMap(map);
-        },
 
         //周边查找 
         NearSearch :  function(val)
@@ -152,18 +139,6 @@
             placeSearch.searchNearBy(val, map.center, 200, function (status, result) {
 
             });
-
-            ////选择执行
-            //var auto = new AMap.Autocomplete(autoOptions);
-            //var placeSearch = new AMap.PlaceSearch({
-            //    map: map
-            //});  //构造地点查询类
-            //AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
-            //function select(e) {
-            //    placeSearch.setCity(e.poi.adcode);
-            //    placeSearch.search(e.poi.name);  //关键字查询查询
-            //}
-
         },
 
         //模糊查询
