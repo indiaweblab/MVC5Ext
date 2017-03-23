@@ -18,7 +18,7 @@ namespace Blogs.Helper.LogHelper
         /// 日志要存的路径 默认路径：网站根目录 + Log 文件夹
         /// 在程序第一次启动是设置
         /// </summary>       
-        public static string _logFilePath;// = HttpContext.Current.Server.MapPath("~/") + @"\Log\";
+        public static string _logFilePath = HttpContext.Current.Server.MapPath("~/") + @"\Log\";
 
         public string logFilePath
         {

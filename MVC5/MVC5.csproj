@@ -46,6 +46,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aliyun.Net, Version=1.0.4.13, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Aliyun.Net\bin\Debug\Aliyun.Net.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -176,10 +180,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\GdMap\Controllers\HomeController.cs" />
+    <Compile Include="Areas\GdMap\Controllers\BaseController.cs" />
     <Compile Include="Areas\GdMap\GdMapAreaRegistration.cs" />
     <Compile Include="Areas\toobar\Controllers\MonelyController.cs" />
     <Compile Include="Areas\toobar\toobarAreaRegistration.cs" />
+    <Compile Include="Controllers\AliYunController.cs" />
     <Compile Include="Controllers\AngularJSController.cs" />
     <Compile Include="Controllers\HighController.cs" />
     <Compile Include="Controllers\jsController.cs" />
@@ -232,7 +237,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\GdMap\Models\" />
+    <Folder Include="Areas\GdMap\Views\Base\" />
     <Folder Include="Areas\toobar\Models\" />
+    <Folder Include="Views\AliYun\" />
     <Folder Include="Views\AngularJS\" />
     <Folder Include="Views\High\" />
     <Folder Include="Views\Ks\" />

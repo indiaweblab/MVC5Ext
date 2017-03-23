@@ -11,6 +11,7 @@ namespace MVC5.Controllers
         // GET: High
         public ActionResult Index()
         {
+            var a = Request.ServerVariables["LOCAl_ADDR"];
             return View();
         }
     }
