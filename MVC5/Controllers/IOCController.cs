@@ -14,7 +14,7 @@ namespace MVC5.Controllers
         {
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<DBManager>();
-            builder.RegisterModule(new Config ("autofac"));
+            //builder.RegisterModule(new ("autofac"));
 
             //var builder = new ContainerBuilder();
             //builder.RegisterType<DBManager>();
