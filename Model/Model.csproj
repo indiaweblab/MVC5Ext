@@ -52,6 +52,7 @@
     <Compile Include="BaseObj.cs" />
     <Compile Include="CONFIG_TYPE.cs" />
     <Compile Include="Entity\BlogEntityBase.cs" />
+    <Compile Include="High\Student.cs" />
     <Compile Include="MyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="toobar\Monely\RateView.cs" />

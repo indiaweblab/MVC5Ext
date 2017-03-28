@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBLL.cs" />
+    <Compile Include="High\StudentRepository.cs" />
     <Compile Include="OpenTimer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncWhois.cs" />
@@ -71,11 +72,16 @@
       <Project>{9a086557-85fc-4e8a-9991-b8ad4c6c766e}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IBLL\IBLL.csproj">
+      <Project>{b29c6792-5c13-4789-a961-f87e312d979c}</Project>
+      <Name>IBLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{93264628-6141-4d89-a6ca-84b9aabb6cfe}</Project>
       <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

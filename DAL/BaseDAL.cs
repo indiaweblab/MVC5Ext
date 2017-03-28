@@ -11,7 +11,7 @@ using Model.Entity;
 
 namespace DAL
 {
-    public class BaseDAL<T> where T : BlogEntityBase
+    public class BaseDAL<T> where T : BlogEntityBase//,IBaseDAL<T>
     {     
         //更改为存线程内
         MyContext db = dbEntities;  //;// = new Model.qds114576568_dbEntities();      

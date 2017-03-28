@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using IBLL;
 using Model.Entity;
 using System;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace BLL
 {
-    public class BaseBLL<T> where T : BlogEntityBase
+    public class BaseBLL<T> where T : BlogEntityBase, IBaseBLL<T> 
     {
         public BaseBLL<T> Instance;
         public object lockObj = new object();

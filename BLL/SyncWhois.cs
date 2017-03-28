@@ -1,6 +1,5 @@
 ﻿using Aliyun;
-using Blogs.Common;
-using Blogs.Helper.LogHelper;
+using LeaRun.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,7 @@ namespace BLL
     {
         private  static SyncWhois entity;
         private  static object obj = new object();
+        private static LeaRun.Utilities.LogHelper log = LeaRun.Utilities.LogFactory.GetLogger("SyncWhois");
 
         public static SyncWhois GetHandler()
         {
@@ -25,25 +25,31 @@ namespace BLL
 
         public  void CheckWhois()
         {
-        
-            string localIp = ConfigHelper.GetAppSettings("IP");
-            string currIp = "192.168.1.1"; //System.Web.HttpContext.Current.Request.UserHostAddress;// Request.ServerVariables["LOCAl_ADDR"];
-            string text = string.Format("time:{0},localHost:{1},currIP:{1}", DateTime.Now, localIp, currIp);
-            LogSave.WarnLogSave(text);
-
-            if (localIp != currIp)
+            try
             {
-                UpWhois(currIp);
-                ConfigHelper.SetAppSetting("IP", currIp);
+                IPScanerHelper ipModel = new IPScanerHelper();
+                string localIp = ConfigHelper.AppSettings("IP");
+                string currIp = ipModel.IPLocation(); //System.Web.HttpContext.Current.Request.UserHostAddress;// Request.ServerVariables["LOCAl_ADDR"];
+                string text = string.Format("time:{0},localHost:{1},currIP:{1}", DateTime.Now, localIp, currIp);
+
+                if (localIp != currIp)
+                {
+                    UpWhois(currIp);
+                    ConfigHelper.SetValue("IP", currIp);
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Debug("this is not !", ex);
             }
         }
         public  void UpWhois(string ip)
         {
-            string DomainName = ConfigHelper.GetAppSettings("Whois");
-            string RR = ConfigHelper.GetAppSettings("AName");
+            string DomainName = ConfigHelper.AppSettings("Whois");
+            string RR = ConfigHelper.AppSettings("AName");
             AliyunRequest model = new AliyunRequest();
-            model.AccessKeyId = ConfigHelper.GetAppSettings("AL_ID");
-            model.Access_Key_Secret = ConfigHelper.GetAppSettings("AL_KEY");
+            model.AccessKeyId = ConfigHelper.AppSettings("AL_ID");
+            model.Access_Key_Secret = ConfigHelper.AppSettings("AL_KEY");
             AliyunUtils.Init(model);
 
             //获取单前ID值

@@ -62,10 +62,17 @@
       <Project>{663E338B-5C59-4006-9540-468D9254A1EA}</Project>
       <Name>Comm</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IDAL\IDAL.csproj">
+      <Project>{7074bb6a-5bb5-49d1-80c2-41b1ae4807ea}</Project>
+      <Name>IDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{93264628-6141-4D89-A6CA-84B9AABB6CFE}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="High\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
