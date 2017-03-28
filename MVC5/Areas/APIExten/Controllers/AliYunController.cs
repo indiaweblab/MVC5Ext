@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC5.Controllers
+namespace MVC5.Areas.APIExten.Controllers
 {
     public class AliYunController : Controller
     {

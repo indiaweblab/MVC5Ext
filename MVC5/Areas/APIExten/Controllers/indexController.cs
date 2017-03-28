@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC5.Controllers
+namespace MVC5.Areas.APIExten.Controllers
 {
-    public class AngularJSController : Controller
+    public class indexController : Controller
     {
-        // GET: AngularJS
+        // GET: APIExten/index
         public ActionResult Index()
         {
             return View();

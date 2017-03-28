@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MVC5.Areas.GdMap.Controllers
+namespace MVC5.Areas.JsExten.Controllers
 {
-    /// <summary>
-    /// 用于高德地图
-    /// </summary>
-    public class BaseController : Controller
+    public class AngularJSController : Controller
     {
+        // GET: AngularJS
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

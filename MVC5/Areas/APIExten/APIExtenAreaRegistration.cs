@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace MVC5.Areas.GdMap
+namespace MVC5.Areas.APIExten
 {
-    public class GdMapAreaRegistration : AreaRegistration 
+    public class APIExtenAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "GdMap";
+                return "APIExten";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "GdMap_default",
-                "GdMap/{controller}/{action}/{id}",
+                "APIExten_default",
+                "APIExten/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

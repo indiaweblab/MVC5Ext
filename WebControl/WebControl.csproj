@@ -67,10 +67,6 @@
       <Project>{663e338b-5c59-4006-9540-468d9254a1ea}</Project>
       <Name>Comm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{93264628-6141-4d89-a6ca-84b9aabb6cfe}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

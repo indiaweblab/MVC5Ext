@@ -171,10 +171,9 @@
     <Content Include="Areas\toobar\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\toobar\Views\Monely\Index.cshtml" />
     <Content Include="Areas\toobar\Views\Monely\GetRate.cshtml" />
-    <Content Include="Areas\GdMap\Views\web.config" />
-    <Content Include="Areas\GdMap\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\GdMap\Views\Home\Index.cshtml" />
     <Content Include="Areas\IOC\Views\web.config" />
+    <Content Include="Areas\JsExten\Views\web.config" />
+    <Content Include="Areas\APIExten\Views\web.config" />
     <None Include="Properties\PublishProfiles\mvc5.pubxml" />
     <None Include="Content\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\Scripts\jquery-1.10.2.js" />
@@ -201,16 +200,19 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\GdMap\Controllers\BaseController.cs" />
-    <Compile Include="Areas\GdMap\GdMapAreaRegistration.cs" />
+    <Compile Include="Areas\APIExten\APIExtenAreaRegistration.cs" />
+    <Compile Include="Areas\APIExten\Controllers\indexController.cs" />
+    <Compile Include="Areas\JsExten\Controllers\GdController.cs" />
     <Compile Include="Areas\IOC\Controllers\AutoMvcController.cs" />
     <Compile Include="Areas\IOC\Controllers\indexController.cs" />
     <Compile Include="Areas\IOC\IOCAreaRegistration.cs" />
+    <Compile Include="Areas\JsExten\Controllers\EasyUIController.cs" />
+    <Compile Include="Areas\JsExten\Controllers\indexController.cs" />
+    <Compile Include="Areas\JsExten\JsExtenAreaRegistration.cs" />
     <Compile Include="Areas\toobar\Controllers\MonelyController.cs" />
     <Compile Include="Areas\toobar\toobarAreaRegistration.cs" />
-    <Compile Include="Controllers\AliYunController.cs" />
-    <Compile Include="Controllers\AngularJSController.cs" />
-    <Compile Include="Controllers\WcfController.cs" />
+    <Compile Include="Areas\APIExten\Controllers\AliYunController.cs" />
+    <Compile Include="Areas\JsExten\Controllers\AngularJSController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -233,11 +235,6 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Employees\Create.cshtml" />
-    <Content Include="Views\Employees\Delete.cshtml" />
-    <Content Include="Views\Employees\Details.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
     <None Include="Service References\EmployeesService\EmployeesService.wsdl" />
     <None Include="Service References\EmployeesService\EmployeesService.xsd">
       <SubType>Designer</SubType>
@@ -257,14 +254,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\GdMap\Models\" />
-    <Folder Include="Areas\GdMap\Views\Base\" />
+    <Folder Include="Areas\APIExten\Models\" />
+    <Folder Include="Areas\APIExten\Views\index\" />
+    <Folder Include="Areas\APIExten\Views\Shared\" />
     <Folder Include="Areas\IOC\Models\" />
     <Folder Include="Areas\IOC\Views\AutoMvc\" />
     <Folder Include="Areas\IOC\Views\index\" />
     <Folder Include="Areas\IOC\Views\Shared\" />
+    <Folder Include="Areas\JsExten\Models\" />
+    <Folder Include="Areas\JsExten\Views\AngularJS\" />
+    <Folder Include="Areas\JsExten\Views\EasyUI\" />
+    <Folder Include="Areas\JsExten\Views\gd\" />
+    <Folder Include="Areas\JsExten\Views\index\" />
+    <Folder Include="Areas\JsExten\Views\Shared\" />
     <Folder Include="Areas\toobar\Models\" />
-    <Folder Include="Views\WCF\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
